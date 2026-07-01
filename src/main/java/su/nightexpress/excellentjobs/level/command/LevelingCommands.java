@@ -82,7 +82,7 @@ public class LevelingCommands implements CommandProvider {
                         Arguments.playerName(ARG_PLAYER),
                         Arguments.argument(ARG_JOB, Job.class)
                             .localized(Lang.COMMAND_ARGUMENT_NAME_JOB.text()),
-                        Arguments.integer(ARG_AMOUNT, 1)
+                        Arguments.decimal(ARG_AMOUNT, 1D)
                             .localized(CoreLang.COMMAND_ARGUMENT_NAME_AMOUNT.text())
                             .suggestions((reader, context) -> Lists.newList("10", "20", "30", "40", "50"))
 
@@ -95,7 +95,7 @@ public class LevelingCommands implements CommandProvider {
                         Arguments.playerName(ARG_PLAYER),
                         Arguments.argument(ARG_JOB, Job.class)
                             .localized(Lang.COMMAND_ARGUMENT_NAME_JOB.text()),
-                        Arguments.integer(ARG_AMOUNT, 1)
+                        Arguments.decimal(ARG_AMOUNT, 1D)
                             .localized(CoreLang.COMMAND_ARGUMENT_NAME_AMOUNT.text())
                             .suggestions((reader, context) -> Lists.newList("10", "20", "30", "40", "50"))
 
