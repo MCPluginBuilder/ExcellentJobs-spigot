@@ -192,11 +192,9 @@ public class JobManager extends AbstractManager<JobsPlugin> {
             String name = config.getOrSet("Name", ConfigCodecs.STRING, "Unnamed");
             List<String> description = config.getOrSet("Description", ConfigCodecs.STRING_LIST, List.of());
             NightItem icon = config.getOrSet("Icon", ConfigCodecs.NIGHT_ITEM, NightItem.fromType(Material.GOLDEN_HOE));
-            boolean permissionRequired = config.getOrSet("Permission_Required", ConfigCodecs.BOOLEAN, false);
+
             NightBarColor barColor = config.getOrSet("ProgressBar.Color", ConfigCodecs.forEnum(NightBarColor.class),
                 NightBarColor.GREEN);
-            List<String> joinCommands = config.getOrSet("General.JoinCommands", ConfigCodecs.STRING_LIST, List.of());
-            List<String> leaveCommands = config.getOrSet("General.LeaveCommands", ConfigCodecs.STRING_LIST, List.of());
 
             int maxLevel = config.getOrSet("Leveling.Max_Level", ConfigCodecs.INT, 100);
 
@@ -211,13 +209,20 @@ public class JobManager extends AbstractManager<JobsPlugin> {
             config.set("Definition.Name", name);
             config.set("Definition.Description", description);
             config.set("Definition.Icon", icon);
-            config.set("Behavior.Permission-Required", permissionRequired);
-            config.set("Behavior.Join-Commands", joinCommands);
-            config.set("Behavior.Leave-Commands", leaveCommands);
 
             config.set("Grind.Bar-Color", barColor);
 
             config.set("Leveling.Max-Level", maxLevel);
+        }
+
+        if (!config.contains("Behavior")) {
+            boolean permissionRequired = config.getOrSet("Permission_Required", ConfigCodecs.BOOLEAN, false);
+            List<String> joinCommands = config.getOrSet("General.JoinCommands", ConfigCodecs.STRING_LIST, List.of());
+            List<String> leaveCommands = config.getOrSet("General.LeaveCommands", ConfigCodecs.STRING_LIST, List.of());
+
+            config.set("Behavior.Permission-Required", permissionRequired);
+            config.set("Behavior.Join-Commands", joinCommands);
+            config.set("Behavior.Leave-Commands", leaveCommands);
         }
 
         String name = FileUtil.getNameWithoutExtension(file);
