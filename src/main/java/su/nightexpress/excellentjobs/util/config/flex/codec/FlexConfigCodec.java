@@ -33,7 +33,7 @@ public class FlexConfigCodec<T extends FlexConfigObject> implements ConfigCodec<
         T object = this.constructor.get();
 
         String miniString = config.getString(path);
-        if (miniString == null) {
+        if (miniString == null || config.isConfigurationSection(path)) {
             object.setMinimized(false);
             this.parseStandard(object, config, path);
         }
