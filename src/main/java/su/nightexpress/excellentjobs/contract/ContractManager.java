@@ -619,6 +619,8 @@ public class ContractManager extends AbstractManager<JobsPlugin> {
             return false;
         }
 
+        this.chargeForContractActivation(player, job, contract);
+
         if (data == null) {
             data = ContractData.create(player, job, contract);
             data.setLeaveCooldown(contract.getBehavior().generateLeaveCooldownTimestamp());
@@ -871,6 +873,15 @@ public class ContractManager extends AbstractManager<JobsPlugin> {
         if (unlocking.getConditions().isEmpty()) return true;
 
         return unlocking.getConditions().stream().allMatch(condition -> condition.check(player, contract, job));
+    }
+
+    public void chargeForContractActivation(Player player, Job job, Contract contract) {
+        ContractUnlocking unlocking = contract.getUnlocking();
+        if (!unlocking.isCostEnabled()) return;
+
+        unlocking.getCost().forEach((id, amount) -> {
+            EconomyBridge.api().withdraw(player, id, amount);
+        });
     }
 
 
