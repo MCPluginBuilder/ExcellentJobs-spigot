@@ -425,6 +425,7 @@ public class LevelingManager extends AbstractManager<JobsPlugin> {
             LevelingLang.XP_GIVE_FEEDBACK.message().sendWith(sender, ctx -> ctx
                 .with(job.placeholders())
                 .with(jobData.placeholders())
+                .with(CommonPlaceholders.PLAYER_NAME, () -> userData.getName())
                 .with(CommonPlaceholders.GENERIC_AMOUNT, () -> NumberUtil.format(amount))
             );
 
@@ -454,6 +455,7 @@ public class LevelingManager extends AbstractManager<JobsPlugin> {
             LevelingLang.XP_TAKE_FEEDBACK.message().sendWith(sender, ctx -> ctx
                 .with(job.placeholders())
                 .with(jobData.placeholders())
+                .with(CommonPlaceholders.PLAYER_NAME, () -> userData.getName())
                 .with(CommonPlaceholders.GENERIC_AMOUNT, () -> NumberUtil.format(amount))
             );
 
@@ -483,6 +485,7 @@ public class LevelingManager extends AbstractManager<JobsPlugin> {
             LevelingLang.LEVEL_GIVE_FEEDBACK.message().sendWith(sender, ctx -> ctx
                 .with(job.placeholders())
                 .with(jobData.placeholders())
+                .with(CommonPlaceholders.PLAYER_NAME, () -> userData.getName())
                 .with(CommonPlaceholders.GENERIC_AMOUNT, () -> NumberUtil.format(amount))
             );
 
@@ -512,6 +515,7 @@ public class LevelingManager extends AbstractManager<JobsPlugin> {
             LevelingLang.LEVEL_TAKE_FEEDBACK.message().sendWith(sender, ctx -> ctx
                 .with(job.placeholders())
                 .with(jobData.placeholders())
+                .with(CommonPlaceholders.PLAYER_NAME, () -> userData.getName())
                 .with(CommonPlaceholders.GENERIC_AMOUNT, () -> NumberUtil.format(amount))
             );
 
