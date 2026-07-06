@@ -13,6 +13,7 @@ public class RewardValue extends FlexConfigObject {
     public static final FlexDoubleProperty STEP = new FlexDoubleProperty("Step", 0, "lvlStep");
 
     public RewardValue() {
+        super();
         this.register(BASE);
         this.register(STEP);
     }

@@ -14,7 +14,7 @@ import su.nightexpress.excellentjobs.level.reward.model.RewardValue;
 import su.nightexpress.nightcore.util.placeholder.CommonPlaceholders;
 
 @NullMarked
-public class LevelingDefaults {
+public final class LevelingDefaults {
 
     public static final int MAX_LEVEL = 100;
 
